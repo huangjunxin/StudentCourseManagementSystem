@@ -1,3 +1,4 @@
+// 获取学生资料
 const mysql = require('../knex')
 const path = require('path')
 
