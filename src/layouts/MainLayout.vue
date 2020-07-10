@@ -15,7 +15,7 @@
           Student Course Management System
         </q-toolbar-title>
 
-        <div>v0.0.4</div>
+        <div>v0.1.5</div>
       </q-toolbar>
     </q-header>
 

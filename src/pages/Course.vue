@@ -40,7 +40,7 @@
               <td class="text-right">{{ row.cname }}</td>
               <td class="text-right">{{ row.cpno }}</td>
               <td class="text-right">{{ row.ccredit }}</td>
-              <td class="text-right">{{ row.grade_avg }}</td>
+              <td class="text-right">{{ row.gradeAvg }}</td>
             </tr>
           </tbody>
         </q-markup-table>
@@ -57,27 +57,27 @@ export default {
     return {
       courseName: '',
       courseInfo: [
-        {
-          cno: 1,
-          cname: '数据库',
-          cpno: 5,
-          ccredit: 4,
-          grade_avg: 60.5
-        },
-        {
-          cno: 2,
-          cname: '数学',
-          cpno: null,
-          ccredit: 2,
-          grade_avg: 72.5
-        },
-        {
-          cno: 3,
-          cname: '信息系统',
-          cpno: 1,
-          ccredit: 4,
-          grade_avg: 62.12
-        }
+        // {
+        //   cno: 1,
+        //   cname: '数据库',
+        //   cpno: 5,
+        //   ccredit: 4,
+        //   gradeAvg: 60.5
+        // },
+        // {
+        //   cno: 2,
+        //   cname: '数学',
+        //   cpno: null,
+        //   ccredit: 2,
+        //   gradeAvg: 72.5
+        // },
+        // {
+        //   cno: 3,
+        //   cname: '信息系统',
+        //   cpno: 1,
+        //   ccredit: 4,
+        //   gradeAvg: 62.12
+        // }
       ]
     }
   },

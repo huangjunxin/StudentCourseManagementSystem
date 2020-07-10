@@ -41,7 +41,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(student.routes(), student.allowedMethods())
-app.use(student.routes(), course.allowedMethods())
+app.use(course.routes(), course.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

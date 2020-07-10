@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="q-pa-md" v-show="studentName.length !== 0">
+      <div class="q-pa-md">
         <q-markup-table>
           <thead>
             <tr>
@@ -47,7 +47,7 @@
               <td class="text-right">{{ row.ssex }}</td>
               <td class="text-right">{{ row.sage }}</td>
               <td class="text-right">{{ row.sdept }}</td>
-              <td class="text-right">{{ row.course }}</td>
+              <td class="text-right">{{ row.courses }}</td>
             </tr>
           </tbody>
         </q-markup-table>
@@ -65,28 +65,28 @@ export default {
       studentName: '',
       studentGender: '',
       studentInfo: [
-        {
-          sno: 95002,
-          sname: '王敏',
-          ssex: '女',
-          sage: '18',
-          sdept: 'MA',
-          course: [
-            '软件工程',
-            '计算机网络'
-          ]
-        },
-        {
-          sno: 95005,
-          sname: '王强',
-          ssex: '男',
-          sage: '17',
-          sdept: 'IS',
-          course: [
-            '高等数学',
-            '网页设计基础'
-          ]
-        }
+        // {
+        //   sno: 95002,
+        //   sname: '王敏',
+        //   ssex: '女',
+        //   sage: '18',
+        //   sdept: 'MA',
+        //   courses: [
+        //     '软件工程',
+        //     '计算机网络'
+        //   ]
+        // },
+        // {
+        //   sno: 95005,
+        //   sname: '王强',
+        //   ssex: '男',
+        //   sage: '17',
+        //   sdept: 'IS',
+        //   courses: [
+        //     '高等数学',
+        //     '网页设计基础'
+        //   ]
+        // }
       ]
     }
   },
