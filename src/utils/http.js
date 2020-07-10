@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
   timeout: 10 * 1000,
-  baseUrl: 'http://localhost:3000'
+  baseURL: 'http://localhost:3000'
 })
 
 export const get = (url, params, config = {}) => {
@@ -34,3 +34,5 @@ export const post = (url, data, config = {}) => {
     })
   })
 }
+
+export default instance

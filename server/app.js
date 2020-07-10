@@ -15,6 +15,7 @@ onerror(app)
 
 // middlewares
 app.use(response)
+
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
 }))
@@ -30,6 +31,8 @@ app.use(views(__dirname + '/views', {
 app.use(async (ctx, next) => {
   const start = new Date()
   await next()
+  // 设置http响应头部允许跨域
+  ctx.set('Access-Control-Allow-Origin', '*')
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })

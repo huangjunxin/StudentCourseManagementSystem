@@ -14,7 +14,6 @@
               v-model="studentName"
               standard
               placeholder="Please enter the name of the student"
-              @input="onChange"
             >
               <template v-slot:append v-if="studentName.length !== 0">
                 <q-icon name="close" @click="studentName = ''" class="cursor-pointer" />
@@ -38,22 +37,17 @@
               <th class="text-right">Gender</th>
               <th class="text-right">Age</th>
               <th class="text-right">Dept</th>
+              <th class="text-right">Course</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="text-left">95002</td>
-              <td class="text-right">王敏</td>
-              <td class="text-right">女</td>
-              <td class="text-right">18</td>
-              <td class="text-right">MA</td>
-            </tr>
-            <tr>
-              <td class="text-left">95005</td>
-              <td class="text-right">王强</td>
-              <td class="text-right">男</td>
-              <td class="text-right">17</td>
-              <td class="text-right">IS</td>
+            <tr v-for="row in studentInfo" :key="row.sno">
+              <td class="text-left">{{ row.sno }}</td>
+              <td class="text-right">{{ row.sname }}</td>
+              <td class="text-right">{{ row.ssex }}</td>
+              <td class="text-right">{{ row.sage }}</td>
+              <td class="text-right">{{ row.sdept }}</td>
+              <td class="text-right">{{ row.course }}</td>
             </tr>
           </tbody>
         </q-markup-table>
@@ -63,23 +57,55 @@
 </template>
 
 <script>
-import { get } from '../utils/http'
-
 export default {
   name: 'PageIndex',
 
   data () {
     return {
       studentName: '',
-      studentGender: ''
+      studentGender: '',
+      studentInfo: [
+        {
+          sno: 95002,
+          sname: '王敏',
+          ssex: '女',
+          sage: '18',
+          sdept: 'MA',
+          course: [
+            '软件工程',
+            '计算机网络'
+          ]
+        },
+        {
+          sno: 95005,
+          sname: '王强',
+          ssex: '男',
+          sage: '17',
+          sdept: 'IS',
+          course: [
+            '高等数学',
+            '网页设计基础'
+          ]
+        }
+      ]
     }
   },
   methods: {
     onSubmit () {
-      get('student', {
-        studentName: this.studentName,
-        studentGender: this.studentGender
+      console.info(`[methods][onSubmit][studentName]${this.studentName}[studentGender]${this.studentGender}`)
+      this.$http.get('/student/getStudentInfo', {
+        params: {
+          studentName: this.studentName,
+          studentGender: this.studentGender
+        }
       })
+        .then(res => {
+          if (res.data.code === -1) {
+            console.error(res.data.data.msg)
+          } else {
+            this.studentInfo = res.data.data
+          }
+        })
     }
   }
 }
